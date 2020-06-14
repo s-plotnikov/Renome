@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9" height="15" viewBox="0 0 9 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="713" y="7031" width="9" height="15" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#1e2633"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="arrow_right_font_awesome_" data-name="arrow right (font awesome)" class="cls-1" d="M713.156,7038.85l7.2,7a0.5,0.5,0,0,0,.711,0l0.773-.75a0.479,0.479,0,0,0,.155-0.35,0.458,0.458,0,0,0-.155-0.34l-6.075-5.91,6.075-5.91a0.458,0.458,0,0,0,.155-0.34,0.479,0.479,0,0,0-.155-0.35l-0.773-.75a0.5,0.5,0,0,0-.711,0l-7.2,7a0.478,0.478,0,0,0-.154.35A0.5,0.5,0,0,0,713.156,7038.85Z" transform="translate(-713 -7031)"/>
+</svg>
