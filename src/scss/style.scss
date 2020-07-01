@@ -9,23 +9,25 @@
 //-----------------------------------------------------------------------------------------------------------
 
 // start header
+
+
 .header__inner {
     display: flex;
-    justify-content: space-between;
-    padding-top: 37px;
-}
-
-.header__logo{
-    margin-bottom: 37px;
+    justify-content: space-around;
+    height: 70px;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    background-color: rgba($color: #fff, $alpha: 1.0)
 }
 
 .header__menu {
     ul {
         display: flex;
         justify-content: space-between;
-        width: 640px;
         position: relative;
-        
         &::after {
             content: '';
             width: 1px;
@@ -35,6 +37,9 @@
             top: 3px;
             right: -22px;
         }
+    }
+    li + li{
+        padding-left: 30px;
     }
     a {
         font-family: 'Montserrat', sans-serif;
@@ -80,6 +85,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    max-height: 850px;
 }
 
 .slider__title {
@@ -96,26 +102,61 @@
     font-size: 30px;
     letter-spacing: 5px;
 }
-
-.slick-prev, 
-.slick-next{
+.slider__inner{
+    .slick-arrow.slick-prev, 
+    .slick-arrow.slick-next{
+        position: absolute;
+        z-index: 16;
+        top: 80%;
+        transition: all 0.2s;
+    }
+    .slick-arrow.slick-prev {
+        left: 35px; 
+    }
+    .slick-arrow.slick-next {
+        left: 108px;
+    }
+    .slick-arrow {
+        border: none; 
+        background-color: rgba($color: #000000, $alpha: 0);
+    } 
+}
+.shop__slider {
+    position: relative;
+}
+.slick-dots {
+    display: flex;
     position: absolute;
-    z-index: 16;
-    top: 80%;
-    transition: all 0.2s;
+    bottom: 100px;
+    left: calc(50% - 54.5px);
+    li {
+        width: 15px;
+        height: 15px;
+        // padding-right: 40px;
+        margin-right: 30px;
+        button {
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            // font-size: 0px;
+            // line-height: 0px;
+            width: 15px;
+            height: 15px;
+            background-color: rgba($color: #000000, $alpha: 0);
+            color: rgba($color: #000000, $alpha: 0);
+        }
+    }
+    .slick-active{
+        // border: 2px solid #ffffff;
+            border-radius: 50%;
+            // font-size: 0px;
+            // line-height: 0px;
+            width: 15px;
+            height: 15px;
+            background-color: rgba($color: #ffffff, $alpha: 1);
+    }
 }
 
-.slick-prev {
-    left: 35px;
-    
-}
-.slick-next {
-    left: 108px;
-}
-.slick-arrow {
-    border: none; 
-    background-color: rgba($color: #000000, $alpha: 0);
-}
+
 
 // start about
 
@@ -128,7 +169,7 @@
     justify-content: center;
 }
 .contant__img-box{
-    width: 450px;
+    max-width: 450px;
     height: 300px;
     position: relative;
     margin-right: 100px;
@@ -180,7 +221,6 @@
     background-color: #f7f7f7;
     padding-top: 100px;
     padding-bottom: 100px;
-    // position: relative;
 }
 
 .gallery__wrapper {
@@ -200,6 +240,7 @@
 }
 .gallery__item-text {
     width: 250px;
+    width: 100%;
     height: 80px;
     position: absolute;
     top: calc(50% - 40px);
@@ -219,14 +260,15 @@
     height: 600px;
 }
 .menu__img-box{
-    width: 450px;
     position: relative;
-    margin-right: 100px;
     .menu-img-1{
         top: 200px;
         left: -48px;
         position: absolute;
     }
+}
+.menu__list {
+    padding-top: 25px;
 }
 .menu__text-box{
     width: 330px;
@@ -256,7 +298,9 @@
     text-transform: uppercase;
     cursor: pointer;
     padding-bottom: 20px;
-    padding-right: 80px;
+    & + .tab{
+        padding-left: 80px;
+    }
 }
 
 .menu__category {
@@ -403,6 +447,38 @@
     margin-bottom: 60px;
 }
 
+.reservation__form-inner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    .reservation-date {
+        border: none;
+        margin-right: 50px;
+        border-bottom: 3px solid #f0f0f0;
+        font-family: 'Montserrat', sans-serif;
+        color: #1e2633;
+        width: 220px;
+    }
+    .reservation-time {
+        border: none;
+        margin-right: 50px;
+        border-bottom: 3px solid #f0f0f0;
+        font-family: 'Montserrat', sans-serif;
+        color: #1e2633;
+        width: 220px;
+    }
+    .reservation-person {
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+        color: #1e2633;
+        font-size: 15px;
+        border-bottom: 3px solid #f0f0f0;
+        line-height: 20px;
+        outline: none;
+        width: 220px;
+    }
+}
+
 .reservation__form-btn {
     text-align: center;
     margin-bottom: 100px;
@@ -473,33 +549,39 @@
         right: 0px;
     }
 }
-.slick-arrow.slick-prev {
-    background-color: #edeff2;
-    padding: 18px 22px;
-    position: absolute;
-    top: 144px;
-    left: -29px;
+.shop__slider{
+    .slick-arrow.slick-prev {
+        background-color: #edeff2;
+        padding: 18px 22px;
+        position: absolute;
+        top: 144px;
+        left: -29px;
+        border: none;
+        z-index: 19;
+    }
+
+    .slick-arrow.slick-next {
+        background-color: #edeff2;
+        padding: 18px 22px;
+        position: absolute;
+        top: 205px;
+        left: -29px;
+        border: none;
+    }
 }
 
-.slick-arrow.slick-next {
-    background-color: #edeff2;
-    padding: 18px 22px;
-    position: absolute;
-    top: 205px;
-    left: -29px;
-}
 
 // end reservation
 // start contact
 
 .contact__inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 100px;
 }
 
 .contact__message {
-    width: 850px;
+    max-width: 850px;
     h3 {
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
@@ -546,19 +628,25 @@
         cursor: pointer;
         margin-left: 50px;
         margin-bottom: 30px;
+        margin-right: 15px;
     }
+}
+
+.contact__message-item {
+    padding-right: 15px;
 }
 
 .contact__adress {
     width: 280px;
-    margin-top: -15px;
+    // margin-top: -15px;
+    // padding-left: 15px;
     h3 {
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         color: #985e5b;
         font-size: 20px;
         text-transform: uppercase;
-        padding-bottom: 50px;
+        padding-bottom: 34px;
     }
 }
 .contact__adress-title {
